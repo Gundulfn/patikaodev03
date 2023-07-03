@@ -1,0 +1,31 @@
+<div>
+    <label class="form-control">ID: {{categoryId}}</label>
+</div>
+
+<div>
+    <label>Name:</label>
+    <div class="form-control">
+        <input type="text" [(ngModel)]="categoryItem.name" required #title="ngModel" />
+    </div>
+</div>
+
+<div>
+    <label>Creation Date:</label>
+    <div class="form-control">
+        <input type="date" [ngModel]="date" (ngModelChange)="handleDateChange($event)"/>
+        <input type="time" [ngModel]="time" (ngModelChange)="handleTimeChange($event)"/>
+    </div>
+</div>
+
+<div>
+    <label>Total Post Count: {{totalPostCount}}</label>
+    <a [routerLink]="'/posts'" [queryParams]="{category_id: categoryId}">Click to Posts</a>
+</div>
+
+<button type="button" [disabled]="isButtonDisabled" (click)="handleSaveItem()">Save</button>
+
+<p class="msg-success" *ngIf="isSuccess">
+    {{
+    categoryId ? 'User was updated successfully' : 'User was created successfully.'
+    }}
+</p>

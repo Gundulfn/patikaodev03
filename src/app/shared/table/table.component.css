@@ -1,0 +1,26 @@
+table{
+    width: 100%;
+    border: 1px solid #ccc;
+}
+
+table thead th {
+    text-align: left;
+    border: 1px solid #ccc;
+}
+
+table tbody td{
+    border: 1px solid #ccc;
+}
+
+.pagination-buttons{
+    margin-top: 15px;
+    text-align: right;
+}
+
+.pagination-buttons button{
+    margin-top: 0 5px;
+}
+
+.pagination-buttons:last-child{
+    margin-right: 0px;
+}

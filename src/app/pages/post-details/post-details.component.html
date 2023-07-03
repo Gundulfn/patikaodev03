@@ -1,0 +1,74 @@
+<div class="container">
+    <div class="form-container">
+        <div>
+            <label class="form-control">ID: {{postId}}</label>
+        </div>
+
+        <div>
+            <label>Post Title:</label>
+            <div class="form-control">
+                <input type="text" [(ngModel)]="postItem.title" required #title="ngModel" />
+            </div>
+        </div>
+
+        <div>
+            <label>User Id:</label>
+            <div class="form-control">
+                <input type="text" [(ngModel)]="postItem.user_id" />
+            </div>
+        </div>
+
+        <div>
+            <label>Category Id:</label>
+            <div class="form-control">
+                <input type="text" [(ngModel)]="postItem.category_id" />
+            </div>
+        </div>
+
+        <div>
+            <label>Content:</label>
+            <div class="form-control">
+                <input type="text" [(ngModel)]="postItem.content" />
+            </div>
+        </div>
+
+        <div>
+            <label>View Count:</label>
+            <div class="form-control">
+                <input type="text" [(ngModel)]="postItem.view_count" />
+            </div>
+        </div>
+
+
+        <div>
+            <label>Creation Date:</label>
+            <div class="form-control">
+                <input type="date" [ngModel]="date" (ngModelChange)="handleDateChange($event)" />
+                <input type="time" [ngModel]="time" (ngModelChange)="handleTimeChange($event)" />
+            </div>
+        </div>
+
+        <div>
+            <label for="isActive">Is Published:</label>
+            <div class="form-control">
+                <input type="checkbox" [(ngModel)]="isPublished">
+            </div>
+        </div>
+
+        <button type="button" [disabled]="isButtonDisabled" (click)="handleSaveItem()">Save</button>
+        <button type="button" [disabled]="isButtonDisabled" (click)="handleDeleteItem()">Delete</button>
+    </div>
+
+    <p class="msg-success" *ngIf="isSuccess">
+        {{
+        postId ? 'User was updated successfully' : 'User was created successfully.'
+        }}
+    </p>
+
+    <div class="table-container" [hidden]="getPostComments().length <= 0">
+        <p>Comments</p>
+        <app-table [tableData]="getPostComments()" [columnHeaders]="columnHeaders" [showButton]="false"></app-table>
+    </div>
+</div>
+
+<ng-toast></ng-toast>

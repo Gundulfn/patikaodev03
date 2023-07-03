@@ -1,0 +1,48 @@
+<div>
+    <label class="form-control">ID: {{commentId}}</label>
+</div>
+
+<div>
+    <label>Comment:</label>
+    <div class="form-control">
+        <input type="text" [(ngModel)]="commentItem.comment" required #title="ngModel" />
+    </div>
+</div>
+
+<div>
+    <label>User Id:</label>
+    <div class="form-control">
+        <input type="text" [(ngModel)]="commentItem.user_id"/>
+    </div>
+</div>
+
+<div>
+    <label>Post Id:</label>
+    <div class="form-control">
+        <input type="text" [(ngModel)]="commentItem.post_id"/>
+    </div>
+</div>
+
+<div>
+    <label>Creation Date:</label>
+    <div class="form-control">
+        <input type="date" [ngModel]="date" (ngModelChange)="handleDateChange($event)"/>
+        <input type="time" [ngModel]="time" (ngModelChange)="handleTimeChange($event)"/>
+    </div>
+</div>
+
+<div>
+    <label for="isActive">Is Confirmed:</label>
+    <div class="form-control">
+        <input type="checkbox" [(ngModel)]="isConfirmed">
+    </div>
+</div>
+
+<button type="button" [disabled]="isButtonDisabled" (click)="handleSaveItem()">Save</button>
+<button type="button" [disabled]="isButtonDisabled" (click)="handleDeleteItem()">Delete</button>
+
+<p class="msg-success" *ngIf="isSuccess">
+    {{
+    commentId ? 'User was updated successfully' : 'User was created successfully.'
+    }}
+</p>
