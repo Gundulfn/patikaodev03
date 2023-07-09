@@ -4,6 +4,8 @@ import { Component, ViewChild } from '@angular/core';
 import { NgModel } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Comment, CommentService } from 'src/app/services/comment.service';
+import { PostService } from 'src/app/services/post.service';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-comment-details',
@@ -15,6 +17,9 @@ export class CommentDetailsComponent {
   @ViewChild('title') commentInput?: NgModel;
   commentItem!: Comment;
   commentId?: string;
+
+  users: any[] = [];
+  posts: any[] = [];
 
   date: string = '';
   time: string = '';
@@ -31,6 +36,8 @@ export class CommentDetailsComponent {
   constructor(
     private commentService: CommentService,
     private router: Router,
+    private userService: UserService,
+    private postService: PostService,
     private datePipe: DatePipe
   ) {
 
@@ -52,6 +59,17 @@ export class CommentDetailsComponent {
     } else {
       this.resetForm();
     }
+
+    this.users = this.userService.getUsers().map(user =>
+      ({
+        user_id: user.user_id,
+        username: user.username
+      }));
+  
+      this.posts = this.postService.getPosts().map(post =>
+      ({
+        post_id: post.post_id
+      }));
   }
 
   handleDateChange(value: string) {

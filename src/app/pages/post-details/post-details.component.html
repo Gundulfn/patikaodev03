@@ -12,16 +12,20 @@
         </div>
 
         <div>
-            <label>User Id:</label>
+            <label>Username:</label>
             <div class="form-control">
-                <input type="text" [(ngModel)]="postItem.user_id" />
+                <select [(ngModel)]="postItem.user_id" [value]="postItem.user_id">
+                    <option *ngFor="let item of users" value="{{item.user_id}}">{{item.username}}</option>
+                </select>
             </div>
         </div>
 
         <div>
             <label>Category Id:</label>
             <div class="form-control">
-                <input type="text" [(ngModel)]="postItem.category_id" />
+                <select [(ngModel)]="postItem.category_id" [value]="postItem.category_id">
+                    <option *ngFor="let item of categories" value="{{item.category_id}}">{{item.name}}</option>
+                </select>
             </div>
         </div>
 
@@ -65,7 +69,7 @@
         }}
     </p>
 
-    <div class="table-container" [hidden]="getPostComments().length <= 0">
+    <div class="table-container" [hidden]="isCreatingNewItem">
         <p>Comments</p>
         <app-table [tableData]="getPostComments()" [columnHeaders]="columnHeaders" [showButton]="false"></app-table>
     </div>

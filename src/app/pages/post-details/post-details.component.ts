@@ -3,8 +3,10 @@ import { Component, ViewChild } from '@angular/core';
 import { NgModel } from '@angular/forms';
 import { Router } from '@angular/router';
 import { NgToastService } from 'ng-angular-popup';
+import { Category, CategoryService } from 'src/app/services/category.service';
 import { Comment, CommentService } from 'src/app/services/comment.service';
 import { Post, PostService } from 'src/app/services/post.service';
+import { User, UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-post-details',
@@ -20,6 +22,9 @@ export class PostDetailsComponent {
   columnHeaders: string[] = ['User Id', 'Comment', 'Date']
   private postComments: Comment[] = [];
 
+  users: any[] = [];
+  categories: any[] = [];
+
   date: string = '';
   time: string = '';
   isPublished: boolean = false;
@@ -32,9 +37,15 @@ export class PostDetailsComponent {
     return true;
   }
 
+  get isCreatingNewItem() {
+    return this.getPostComments().length <= 0
+  }
+
   constructor(
     private postService: PostService,
     private commentService: CommentService,
+    private userService: UserService,
+    private categoryService: CategoryService,
     private router: Router,
     private datePipe: DatePipe,
     private toast: NgToastService
@@ -59,6 +70,18 @@ export class PostDetailsComponent {
     } else {
       this.resetForm();
     }
+
+    this.users = this.userService.getUsers().map(user =>
+    ({
+      user_id: user.user_id,
+      username: user.username
+    }));
+
+    this.categories = this.categoryService.getCategories().map(category =>
+    ({
+      category_id: category.category_id,
+      name: category.name
+    }));
   }
 
   getPostComments(): any[] {
@@ -78,10 +101,10 @@ export class PostDetailsComponent {
   }
 
   handleDeleteItem() {
-    if(this.postComments.length == 0){
+    if (this.postComments.length == 0) {
       this.postService.deletePost(this.postId!);
       this.router.navigateByUrl('/posts');
-    }else{
+    } else {
       this.toast.error({ detail: "ERROR", summary: 'Cannot delete post which has comments', duration: 5000 });
     }
 

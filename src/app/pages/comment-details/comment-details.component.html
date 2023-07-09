@@ -10,16 +10,20 @@
 </div>
 
 <div>
-    <label>User Id:</label>
+    <label>Username:</label>
     <div class="form-control">
-        <input type="text" [(ngModel)]="commentItem.user_id"/>
+        <select [(ngModel)]="commentItem.user_id" [value]="commentItem.user_id">
+            <option *ngFor="let item of users" value="{{item.user_id}}">{{item.username}}</option>
+        </select>
     </div>
 </div>
 
 <div>
     <label>Post Id:</label>
     <div class="form-control">
-        <input type="text" [(ngModel)]="commentItem.post_id"/>
+        <select [(ngModel)]="commentItem.post_id" [value]="commentItem.post_id">
+            <option *ngFor="let item of posts" value="{{item.post_id}}">{{item.post_id}}</option>
+        </select>
     </div>
 </div>
 
