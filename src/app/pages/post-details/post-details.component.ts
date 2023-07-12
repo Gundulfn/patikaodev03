@@ -105,7 +105,7 @@ export class PostDetailsComponent {
       this.postService.deletePost(this.postId!);
       this.router.navigateByUrl('/posts');
     } else {
-      this.toast.error({ detail: "ERROR", summary: 'Cannot delete post which has comments', duration: 5000 });
+      this.toast.error({ detail: "ERROR", summary: 'Cannot delete post which has comments', duration: 5000, position:'topCenter'});
     }
 
   }

@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { RoutingElement } from '../shared/routing-element';
+import { RoutingElement } from '../shared/RoutingElement';
 
 @Injectable({
   providedIn: 'root'

@@ -19,7 +19,7 @@ export class CategoryDetailsComponent {
   date: string = '';
   time: string = '';
   isSuccess: boolean = false;
-  totalPostCount: number = 0;
+  totalPostCount: number = -1;
 
   get isButtonDisabled() {
     if (this.categoryNameInput) {

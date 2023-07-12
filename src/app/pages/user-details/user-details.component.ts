@@ -72,10 +72,10 @@ export class UserDetailsComponent {
         this.userService.deleteUser(this.userId!);
         this.router.navigateByUrl('/users');
       } else {
-        this.toast.error({ detail: "ERROR", summary: 'Cannot delete user which has posts or comments', duration: 5000 });
+        this.toast.error({ detail: "ERROR", summary: 'Cannot delete user which has posts or comments', duration: 5000, position:'topCenter'});
       }
     } else {
-      this.toast.error({ detail: "ERROR", summary: 'Cannot delete last user', duration: 5000 });
+      this.toast.error({ detail: "ERROR", summary: 'Cannot delete last user', duration: 5000, position:'topCenter'});
     }
   }
 

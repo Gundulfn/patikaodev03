@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { RoutingElement } from '../routing-element';
+import { RoutingElement } from '../RoutingElement';
 
 @Component({
   selector: 'app-table',
