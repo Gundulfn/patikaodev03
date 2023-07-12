@@ -20,6 +20,7 @@ import { CommentDetailsComponent } from './comment-details/comment-details.compo
 import { CategoryDetailsComponent } from './category-details/category-details.component';
 import { NgToastModule } from 'ng-angular-popup';
 import { PopupMessageComponent } from '../shared/popup-message/popup-message.component';
+import { NullReplacePipe } from '../shared/null-replace.pipe';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import { PopupMessageComponent } from '../shared/popup-message/popup-message.com
     PostDetailsComponent,
     CommentDetailsComponent,
     CategoryDetailsComponent,
-    PopupMessageComponent
+    PopupMessageComponent,
+    NullReplacePipe
   ],
   imports: [
     CommonModule,

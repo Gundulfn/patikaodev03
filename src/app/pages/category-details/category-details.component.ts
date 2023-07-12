@@ -4,7 +4,7 @@ import { NgModel } from '@angular/forms';
 import { Router } from '@angular/router';
 import { NgToastService } from 'ng-angular-popup';
 import { Category, CategoryService } from 'src/app/services/category.service';
-import { Post, PostService } from 'src/app/services/post.service';
+import { PostService } from 'src/app/services/post.service';
 import { PopupMessageComponent } from 'src/app/shared/popup-message/popup-message.component';
 
 @Component({
