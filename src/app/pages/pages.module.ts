@@ -19,6 +19,7 @@ import { PostDetailsComponent } from './post-details/post-details.component';
 import { CommentDetailsComponent } from './comment-details/comment-details.component';
 import { CategoryDetailsComponent } from './category-details/category-details.component';
 import { NgToastModule } from 'ng-angular-popup';
+import { PopupMessageComponent } from '../shared/popup-message/popup-message.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { NgToastModule } from 'ng-angular-popup';
     RouteButtonComponent,
     PostDetailsComponent,
     CommentDetailsComponent,
-    CategoryDetailsComponent
+    CategoryDetailsComponent,
+    PopupMessageComponent
   ],
   imports: [
     CommonModule,

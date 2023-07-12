@@ -6,13 +6,14 @@ import { NgToastService } from 'ng-angular-popup';
 import { CommentService } from 'src/app/services/comment.service';
 import { PostService } from 'src/app/services/post.service';
 import { User, UserService } from 'src/app/services/user.service';
+import { PopupMessageComponent } from 'src/app/shared/popup-message/popup-message.component';
 
 @Component({
   selector: 'app-user-details',
   templateUrl: './user-details.component.html',
   styleUrls: ['./user-details.component.css']
 })
-export class UserDetailsComponent {
+export class UserDetailsComponent extends PopupMessageComponent {
   @ViewChild('title') usernameInput?: NgModel;
   userItem!: User;
   userId?: string;
@@ -35,9 +36,10 @@ export class UserDetailsComponent {
     private postService: PostService,
     private router: Router,
     private datePipe: DatePipe,
-    private toast: NgToastService
+    private toastService: NgToastService
   ) {
 
+    super(toastService);
     var paramUserId;
 
     if (this.router.url.includes('?'))
@@ -72,10 +74,11 @@ export class UserDetailsComponent {
         this.userService.deleteUser(this.userId!);
         this.router.navigateByUrl('/users');
       } else {
-        this.toast.error({ detail: "ERROR", summary: 'Cannot delete user which has posts or comments', duration: 5000, position:'topCenter'});
+
+        this.createErrorMessage('Cannot delete user which has posts or comments');
       }
     } else {
-      this.toast.error({ detail: "ERROR", summary: 'Cannot delete last user', duration: 5000, position:'topCenter'});
+      this.createErrorMessage('Cannot delete last user');
     }
   }
 
@@ -97,12 +100,14 @@ export class UserDetailsComponent {
 
     if (this.userId) {
       this.userService.updateUser(this.userId, this.userItem);
+
+      this.createSuccessMessage('User was updated successfully');
     } else {
       this.userService.addUser(this.userItem);
       this.resetForm();
-    }
 
-    this.isSuccess = true;
+      this.createSuccessMessage('User was created successfully');
+    }
   }
 
   private resetForm() {

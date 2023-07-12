@@ -27,10 +27,4 @@
 <button type="button" [disabled]="isButtonDisabled" (click)="handleSaveItem()">Save</button>
 <button type="button" [disabled]="isButtonDisabled" (click)="handleDeleteItem()">Delete</button>
 
-<p class="msg-success" *ngIf="isSuccess">
-    {{
-    userId ? 'User was updated successfully' : 'User was created successfully.'
-    }}
-</p>
-
-<ng-toast></ng-toast>
+<app-popup-message></app-popup-message>

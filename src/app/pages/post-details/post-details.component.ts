@@ -3,10 +3,11 @@ import { Component, ViewChild } from '@angular/core';
 import { NgModel } from '@angular/forms';
 import { Router } from '@angular/router';
 import { NgToastService } from 'ng-angular-popup';
-import { Category, CategoryService } from 'src/app/services/category.service';
+import { CategoryService } from 'src/app/services/category.service';
 import { Comment, CommentService } from 'src/app/services/comment.service';
 import { Post, PostService } from 'src/app/services/post.service';
-import { User, UserService } from 'src/app/services/user.service';
+import { UserService } from 'src/app/services/user.service';
+import { PopupMessageComponent } from 'src/app/shared/popup-message/popup-message.component';
 
 @Component({
   selector: 'app-post-details',
@@ -14,7 +15,7 @@ import { User, UserService } from 'src/app/services/user.service';
   styleUrls: ['./post-details.component.css']
 })
 
-export class PostDetailsComponent {
+export class PostDetailsComponent extends PopupMessageComponent {
   @ViewChild('title') postTitleInput?: NgModel;
   postItem!: Post;
   postId?: string;
@@ -48,9 +49,10 @@ export class PostDetailsComponent {
     private categoryService: CategoryService,
     private router: Router,
     private datePipe: DatePipe,
-    private toast: NgToastService
+    private toastService: NgToastService
   ) {
 
+    super(toastService);
     var paramPostId;
 
     if (this.router.url.includes('?'))
@@ -105,9 +107,8 @@ export class PostDetailsComponent {
       this.postService.deletePost(this.postId!);
       this.router.navigateByUrl('/posts');
     } else {
-      this.toast.error({ detail: "ERROR", summary: 'Cannot delete post which has comments', duration: 5000, position:'topCenter'});
+      this.createErrorMessage('Cannot delete post which has comments');
     }
-
   }
 
   setCreationDate() {
