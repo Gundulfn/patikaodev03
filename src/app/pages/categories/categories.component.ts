@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Category, CategoryService } from 'src/app/services/category.service';
-import { Utility } from 'src/app/shared/utilities';
+import { Utility } from 'src/app/shared/Utility';
 
 @Component({
   selector: 'app-categories',

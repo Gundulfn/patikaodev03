@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { CommentService, Comment } from 'src/app/services/comment.service';
-import { Utility } from 'src/app/shared/utilities';
+import { Utility } from 'src/app/shared/Utility';
 
 @Component({
   selector: 'app-comments',

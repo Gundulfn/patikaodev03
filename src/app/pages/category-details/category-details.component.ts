@@ -49,7 +49,7 @@ export class CategoryDetailsComponent {
         this.setDateTime();
         this.categoryId = this.categoryItem.category_id;
 
-        this.totalPostCount = postService.getPostCountByCategoryId(this.categoryId!);
+        this.totalPostCount = this.postService.getPostCountByCategoryId(this.categoryId!);
       }
     } else {
       this.resetForm();
