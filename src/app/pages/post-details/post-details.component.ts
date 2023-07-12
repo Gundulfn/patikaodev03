@@ -106,6 +106,8 @@ export class PostDetailsComponent extends PopupMessageComponent {
     if (this.postComments.length == 0) {
       this.postService.deletePost(this.postId!);
       this.router.navigateByUrl('/posts');
+
+      this.createSuccessMessage('Post was deleted succesfully');
     } else {
       this.createErrorMessage('Cannot delete post which has comments');
     }

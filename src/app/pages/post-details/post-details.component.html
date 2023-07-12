@@ -63,16 +63,8 @@
         <button type="button" [disabled]="isButtonDisabled" (click)="handleDeleteItem()">Delete</button>
     </div>
 
-    <p class="msg-success" *ngIf="isSuccess">
-        {{
-        postId ? 'User was updated successfully' : 'User was created successfully.'
-        }}
-    </p>
-
     <div class="table-container" [hidden]="isCreatingNewItem">
         <p>Comments</p>
         <app-table [tableData]="getPostComments()" [columnHeaders]="columnHeaders" [showButton]="false"></app-table>
     </div>
 </div>
-
-<ng-toast></ng-toast>

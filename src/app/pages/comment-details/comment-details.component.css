@@ -23,8 +23,3 @@ label {
 .form-control input[type=time] {
     width: 40%;
 }
-
-.msg-success {
-    color: green;
-    font-size: 14px;
-}

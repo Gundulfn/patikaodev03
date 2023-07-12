@@ -2,8 +2,10 @@ import { DatePipe } from '@angular/common';
 import { Component, ViewChild } from '@angular/core';
 import { NgModel } from '@angular/forms';
 import { Router } from '@angular/router';
+import { NgToastService } from 'ng-angular-popup';
 import { Category, CategoryService } from 'src/app/services/category.service';
 import { Post, PostService } from 'src/app/services/post.service';
+import { PopupMessageComponent } from 'src/app/shared/popup-message/popup-message.component';
 
 @Component({
   selector: 'app-category-details',
@@ -11,7 +13,7 @@ import { Post, PostService } from 'src/app/services/post.service';
   styleUrls: ['./category-details.component.css']
 })
 
-export class CategoryDetailsComponent {
+export class CategoryDetailsComponent extends PopupMessageComponent{
   @ViewChild('title') categoryNameInput?: NgModel;
   categoryItem!: Category;
   categoryId?: string;
@@ -32,9 +34,11 @@ export class CategoryDetailsComponent {
     private categoryService: CategoryService,
     private router: Router,
     private datePipe: DatePipe,
-    private postService: PostService
+    private postService: PostService,
+    private toastService: NgToastService
   ) {
 
+    super(toastService);
     var paramCategoryId;
 
     if (this.router.url.includes('?'))
@@ -81,9 +85,13 @@ export class CategoryDetailsComponent {
 
     if (this.categoryId) {
       this.categoryService.updateCategory(this.categoryId, this.categoryItem);
+
+      this.createSuccessMessage('Category was updated succesfully');
     } else {
       this.categoryService.addCategory(this.categoryItem);
       this.resetForm();
+
+      this.createSuccessMessage('Category was created succesfully');
     }
 
     this.isSuccess = true;

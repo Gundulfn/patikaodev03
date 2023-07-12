@@ -43,7 +43,8 @@ import { PopupMessageComponent } from '../shared/popup-message/popup-message.com
     NgToastModule
   ],
   exports: [
-    TableComponent
+    TableComponent,
+    PopupMessageComponent
   ],
   providers: [
     UserService,

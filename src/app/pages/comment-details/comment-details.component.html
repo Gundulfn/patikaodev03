@@ -44,9 +44,3 @@
 
 <button type="button" [disabled]="isButtonDisabled" (click)="handleSaveItem()">Save</button>
 <button type="button" [disabled]="isButtonDisabled" (click)="handleDeleteItem()">Delete</button>
-
-<p class="msg-success" *ngIf="isSuccess">
-    {{
-    commentId ? 'User was updated successfully' : 'User was created successfully.'
-    }}
-</p>

@@ -73,8 +73,9 @@ export class UserDetailsComponent extends PopupMessageComponent {
       if (this.commentService.getCommentCountByUserId(this.userId!) == 0 && this.postService.getPostCountByUserId(this.userId!) == 0) {
         this.userService.deleteUser(this.userId!);
         this.router.navigateByUrl('/users');
-      } else {
 
+        this.createSuccessMessage('User was deleted succesfully');
+      } else {
         this.createErrorMessage('Cannot delete user which has posts or comments');
       }
     } else {

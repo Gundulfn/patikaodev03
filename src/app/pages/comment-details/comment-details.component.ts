@@ -3,9 +3,11 @@ import { DatePipe } from '@angular/common';
 import { Component, ViewChild } from '@angular/core';
 import { NgModel } from '@angular/forms';
 import { Router } from '@angular/router';
+import { NgToastService } from 'ng-angular-popup';
 import { Comment, CommentService } from 'src/app/services/comment.service';
 import { PostService } from 'src/app/services/post.service';
 import { UserService } from 'src/app/services/user.service';
+import { PopupMessageComponent } from 'src/app/shared/popup-message/popup-message.component';
 
 @Component({
   selector: 'app-comment-details',
@@ -13,7 +15,7 @@ import { UserService } from 'src/app/services/user.service';
   styleUrls: ['./comment-details.component.css']
 })
 
-export class CommentDetailsComponent {
+export class CommentDetailsComponent extends PopupMessageComponent{
   @ViewChild('title') commentInput?: NgModel;
   commentItem!: Comment;
   commentId?: string;
@@ -38,9 +40,11 @@ export class CommentDetailsComponent {
     private router: Router,
     private userService: UserService,
     private postService: PostService,
-    private datePipe: DatePipe
+    private datePipe: DatePipe,
+    private toastService: NgToastService
   ) {
 
+    super(toastService);
     var paramCommentId;
 
     if (this.router.url.includes('?'))
@@ -83,6 +87,8 @@ export class CommentDetailsComponent {
   handleDeleteItem() {
     this.commentService.deleteComment(this.commentId!);
     this.router.navigateByUrl('/comments');
+
+    this.createSuccessMessage('Comment was deleted succesfully');
   }
 
   setCreationDate() {
@@ -103,9 +109,13 @@ export class CommentDetailsComponent {
 
     if (this.commentId) {
       this.commentService.updateComment(this.commentId, this.commentItem);
+
+      this.createSuccessMessage('Comment was updated succesfully');
     } else {
       this.commentService.addComment(this.commentItem);
       this.resetForm();
+
+      this.createSuccessMessage('Comment was created succesfully');
     }
 
     this.isSuccess = true;
