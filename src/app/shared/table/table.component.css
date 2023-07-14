@@ -1,26 +1,71 @@
-table{
+table {
     width: 100%;
-    border: 1px solid #ccc;
 }
 
 table thead th {
     text-align: left;
-    border: 1px solid #ccc;
+    background-color: #00ADB5;
+    border: 1px #393E46;
+    color: white;
 }
 
-table tbody td{
-    border: 1px solid #ccc;
+table thead th:first-child {
+    text-align: center;
 }
 
-.pagination-buttons{
+table thead th:last-child {
+    text-align: center;
+}
+
+table tbody td {
+    background-color: #EEEEEE;
+    border: 1px #393E46;
+
+    font-size: medium;
+    height: 20px;
+}
+
+table tbody td:first-child {
+    text-align: center;
+}
+
+table tbody td:last-child {
+    text-align: center;
+}
+
+.button-section {
+    display: flex;
     margin-top: 15px;
-    text-align: right;
 }
 
-.pagination-buttons button{
+.pagination-buttons {
+    margin-bottom: 10px;
+}
+
+.pagination-buttons button {
     margin-top: 0 5px;
 }
 
-.pagination-buttons:last-child{
+.pagination-buttons button:disabled {
+    margin-top: 0 5px;
+}
+
+.pagination-buttons:last-child {
     margin-right: 0px;
+}
+
+.route-button{
+    flex: 1;
+}
+
+.route-button button {
+    margin-bottom: 10px;
+}
+
+.details-link:hover {
+    color: black;
+}
+
+.details-link:hover {
+    color: gray;
 }

@@ -1,1 +1,28 @@
-/* You can add global styles to this file, and also import other style files */
+body {
+    background-color: #222831;
+}
+
+@font-face {
+    font-family: 'RobotoRegularFont';
+    src: url('/assets/Roboto-Regular.ttf');
+}
+
+thead th {
+    font-family: 'RobotoRegularFont';
+}
+
+tbody td {
+    font-family: 'RobotoRegularFont';
+}
+
+button{
+    font-family: 'RobotoRegularFont';
+    background-color: #393E46;
+    color: white;
+    font-size: small;
+}
+
+button:disabled{
+    background-color: #393E46;
+    color: black;
+}
