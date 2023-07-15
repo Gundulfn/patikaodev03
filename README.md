@@ -3,6 +3,39 @@
 
 This is an Angular Blog Management System project made during "Allianz GeleceğimAll Meslek Edindirme" program.
 
+## Data Models
+This project is based on the following data models:
+
+* User
+    * user_id
+    * username
+    * email
+    * creation_date
+    * is_active
+    
+* Post
+    * post_id
+    * user_id
+    * category_id
+    * title
+    * content
+    * view_count
+    * creation_date
+    * is_published
+    
+* Category
+    * category_id
+    * name
+    * creation_date
+    
+* Comment
+    * comment_id
+    * post_id
+    * user_id
+    * comment
+    * creation_date
+    * is_confirmed
+  
 ## Project Details
 This project has multiple main and detail pages, these pages controlled by Angular routing. 
 * Main pages such as "Users", "Posts", "Categories" have tables which show JSON data from local storage and "Create" button to add new item to these tables. Also, you can filter table results using query params like : 
