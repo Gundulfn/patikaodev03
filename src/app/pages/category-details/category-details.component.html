@@ -1,6 +1,13 @@
+<b *ngIf="categoryId; else itemCreating">Category Details</b>
+
+<ng-template #itemCreating>
+    <b>Creating New Category</b>
+</ng-template>
+
 <div>
+    <label>ID:</label>
     <div class="form-control">
-        <label class="form-control">ID: {{categoryId}}</label>
+        <label>{{categoryId}}</label>
     </div>
 </div>
 
@@ -20,9 +27,12 @@
 </div>
 
 <div [hidden]="totalPostCount < 0">
+    <label>Total Pos Count:</label>
     <div class="form-control">
-        <label>Total Post Count: {{totalPostCount}}</label>
-        <a [routerLink]="'/posts'" [queryParams]="{category_id: categoryId}">Click to Posts</a>
+        <label>
+            {{totalPostCount}}
+        </label>
+        <button [routerLink]="'/posts'" [queryParams]="{category_id: categoryId}">Show Posts</button>
     </div>
 </div>
 

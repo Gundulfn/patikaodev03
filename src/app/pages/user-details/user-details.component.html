@@ -1,5 +1,14 @@
+<b *ngIf="userId; else itemCreating">User Details</b>
+
+<ng-template #itemCreating>
+    <b>Creating New User</b>
+</ng-template>
+
 <div>
-    <label class="form-control">ID: {{userId}}</label>
+    <label>ID:</label>
+    <div class="form-control">
+        <label>{{userId}}</label>
+    </div>
 </div>
 
 <div>
@@ -12,8 +21,8 @@
 <div>
     <label>Creation Date:</label>
     <div class="form-control">
-        <input type="date" [ngModel]="date" (ngModelChange)="handleDateChange($event)"/>
-        <input type="time" [ngModel]="time" (ngModelChange)="handleTimeChange($event)"/>
+        <input type="date" [ngModel]="date" (ngModelChange)="handleDateChange($event)" />
+        <input type="time" [ngModel]="time" (ngModelChange)="handleTimeChange($event)" />
     </div>
 </div>
 

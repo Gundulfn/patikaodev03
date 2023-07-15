@@ -1,7 +1,14 @@
+<b *ngIf="postId; else itemCreating">Post Details</b>
+
+<ng-template #itemCreating>
+    <b>Creating New Post</b>
+</ng-template>
+
 <div class="container">
     <div class="form-container">
-        <div>
-            <label class="form-control">ID: {{postId}}</label>
+        <label>ID:</label>
+        <div class="form-control">
+            <label>{{postId}}</label>
         </div>
 
         <div>
@@ -64,7 +71,7 @@
     </div>
 
     <div class="table-container" [hidden]="isCreatingNewItem">
-        <p>Comments</p>
+        <label>Comments</label>
         <app-table [tableData]="getPostComments()" [columnHeaders]="columnHeaders" [showButton]="false"></app-table>
     </div>
 </div>

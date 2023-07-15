@@ -1,7 +1,15 @@
-<div>
-    <label class="form-control">ID: {{commentId}}</label>
-</div>
+<b *ngIf="commentId; else itemCreating">Comment Details</b>
 
+<ng-template #itemCreating>
+    <b>Creating New Comment</b>
+</ng-template>
+
+<div>
+    <label>ID:</label>
+    <div class="form-control">
+        <label>{{commentId}}</label>
+    </div>
+</div>
 <div>
     <label>Comment:</label>
     <div class="form-control">

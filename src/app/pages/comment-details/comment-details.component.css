@@ -2,6 +2,10 @@ div {
     margin: 10px 0;
 }
 
+b {
+    color: white;
+}
+
 label {
     width: 150px;
     display: inline-block;
@@ -22,4 +26,10 @@ label {
 
 .form-control input[type=time] {
     width: 40%;
+}
+
+button{
+    margin-top: 10px;
+    margin-right: 50px;
+    margin-left: 5px;
 }
