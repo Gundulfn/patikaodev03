@@ -9,9 +9,10 @@ import { UserDetailsComponent } from './pages/user-details/user-details.componen
 import { PostDetailsComponent } from './pages/post-details/post-details.component';
 import { CommentDetailsComponent } from './pages/comment-details/comment-details.component';
 import { CategoryDetailsComponent } from './pages/category-details/category-details.component';
+import { HomeComponent } from './pages/home/home.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: 'users', pathMatch: 'full' },
+  { path: '', component: HomeComponent, pathMatch: 'full' },
   { path: 'users', component: UsersComponent, pathMatch: 'full' },
   { path: 'users/:username', component: UserDetailsComponent, pathMatch: 'full'},
   { path: 'posts', component: PostsComponent },
