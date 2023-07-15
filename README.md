@@ -1,27 +1,37 @@
-# Ödev 3
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.0.5.
+# Patika Ödev 3
 
-## Development server
+This is an Angular Blog Management System project made during "Allianz GeleceğimAll Meslek Edindirme" program.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+## Project Details
+This project has multiple main and detail pages, these pages controlled by Angular routing. 
+* Main pages such as "Users", "Posts", "Categories" have tables which show JSON data from local storage and "Create" button to add new item to these tables. Also, you can filter table results using query params like : 
+	* /comments?user_id=1
+	* /comments?user_id=1&post_id=42
+	* /posts?user_id=2
+* Detail pages contain whole and extra informations about current item. Furthermore, it enables to update item's data with text input or different selection types (Example: Username selection, Date, Hour). Moreover, you can delete the item in this page.
+* To create new item to table, click "Create" button at one of main pages that you want to add. Creation page looks similar to detail pages.
 
-## Code scaffolding
+## Get started
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+### Clone the repo
 
-## Build
+```
+git clone https://github.com/Gundulfn/patikaodev03.git
+```
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+### Install npm packages
 
-## Running unit tests
+Install the `npm` packages described in the `package.json` and verify that it works:
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+```
+npm install
+npm start
+```
+### Start localhost
+Start localhost at your environment, open project file from terminal and enter:
 
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+```
+ng serve --open
+```
+Shut it down manually with `Ctrl-C`.
