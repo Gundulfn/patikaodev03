@@ -3,23 +3,27 @@ body {
 }
 
 @font-face {
-    font-family: 'RobotoRegularFont';
+    font-family: 'RobotoRegular';
     src: url('/assets/Roboto-Regular.ttf');
 }
 
 thead th {
-    font-family: 'RobotoRegularFont';
+    font-family: 'RobotoRegular';
 }
 
 tbody td {
-    font-family: 'RobotoRegularFont';
+    font-family: 'RobotoRegular';
 }
 
 button {
-    font-family: 'RobotoRegularFont';
+    font-family: 'RobotoRegular';
     background-color: #393E46;
     color: white;
     font-size: small;
+}
+
+button:hover {
+    background-color: #00ADB5;
 }
 
 button:disabled {
@@ -28,6 +32,11 @@ button:disabled {
 }
 
 label {
-    font-family: 'RobotoRegularFont';
+    font-family: 'RobotoRegular';
+    color: white;
+}
+
+b {
+    font-family: 'RobotoRegular';
     color: white;
 }

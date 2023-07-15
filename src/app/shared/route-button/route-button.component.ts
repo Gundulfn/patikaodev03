@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
 export class RouteButtonComponent {
   @Input() routePath: any;
   @Input() buttonText: any;
-
+  color: any;
   constructor(private route: Router){ }
 
   routeToPage(){
