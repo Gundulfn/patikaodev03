@@ -15,14 +15,19 @@ tbody td {
     font-family: 'RobotoRegularFont';
 }
 
-button{
+button {
     font-family: 'RobotoRegularFont';
     background-color: #393E46;
     color: white;
     font-size: small;
 }
 
-button:disabled{
+button:disabled {
     background-color: #393E46;
     color: black;
+}
+
+label {
+    font-family: 'RobotoRegularFont';
+    color: white;
 }

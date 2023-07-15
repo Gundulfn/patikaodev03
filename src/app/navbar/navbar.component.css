@@ -1,3 +1,16 @@
+.navbar-container {
+    background-color: #393E46;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 25px;
+
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
 ul {
     list-style: none;
     padding: 0;
@@ -5,6 +18,19 @@ ul {
 }
 
 li {
-    padding: 2px 5px;
+    padding-left: 5px;
+    padding-right: 50px;
     display: inline-block;
+}
+
+li:first-child {
+    display: inline-block;
+}
+
+strong {
+    color: white;
+}
+
+strong:hover {
+    color: gray;
 }
